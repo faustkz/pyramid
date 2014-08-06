@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:r="http://richfaces.org"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="/templates/masterLayout.xhtml">
+
+    <ui:define name="content">
+
+        <h:outputStylesheet>
+            .even-row {
+                background-color: #FCFFFE;
+            }
+            .odd-row {
+                background-color: #ECF3FE;
+            }
+            .active-row {
+                background-color: #FFEBDA !important;
+                cursor: pointer;
+            }
+        </h:outputStylesheet>
+
+        <h3 style="margin-left:10px;">Управление подразделениями</h3>
+        <r:panel style="margin-left:10px;">
+            <h:form>
+                <r:dataTable value="#{adminBean.devivsions}" var="dev" id="table" rows="20" rowClasses="odd-row, even-row" styleClass="stable" >
+                    <r:column width="50">
+                        <f:facet name="header">
+                            <h:outputText value="ID" style="width: 50px;"/>
+                        </f:facet>
+                        <h:outputText value="#{dev.id}"/>
+                    </r:column>
+                    <r:column width="200">
+                        <f:facet name="header">
+                            <h:outputText value="Название" style="width: 250px;"/>
+                        </f:facet>
+                        <h:outputText value="#{dev.name}"/>
+                    </r:column>
+                    <r:column width="200">
+                        <f:facet name="header">
+                            <h:outputText value="Действие" style="width: 250px;"/>
+                        </f:facet>
+                        <r:commandLink value="удалить" action="#{adminBean.removeDevision(dev.id)}"/>
+                    </r:column>
+                </r:dataTable>
+            </h:form>
+            <r:jQuery selector=".stable tr:odd" query="addClass('odd-row')" />
+            <r:jQuery selector=".stable tr:even" query="addClass('even-row')" />
+            <r:jQuery selector=".stable tr" event="mouseover" query="jQuery(this).addClass('active-row')" />
+            <r:jQuery selector=".stable tr" event="mouseout" query="jQuery(this).removeClass('active-row')" />
+        </r:panel>
+        <r:panel style="margin-left:10px; height: 250px; ">
+            <h:form>
+                <h3>Создать новое подразделение</h3>
+                <r:autocomplete value="#{adminBean.devisionName}">
+                    <r:placeholder value="Название нового подразделения"/>
+                </r:autocomplete>
+                <r:commandButton style="float: left" value="Создать" action="#{adminBean.createDevision}" />
+            </h:form>
+        </r:panel>
+    </ui:define>
+
+</ui:composition>

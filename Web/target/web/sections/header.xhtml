@@ -1,0 +1,21 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:r="http://richfaces.org" >
+
+    <div style="display: block; position: absolute; padding: 5px; left: 10px;"> <h2> #{settingsBean.getSetting("application.title")} </h2>  </div>
+    <div style="display: block; position: absolute; right: 10px; ">
+        <h:form>
+            <h:outputLabel value="Вы вошли как ${userBean.fullName}" />
+            <r:commandLink action="#{welcomBean.doLogout}" value="Выйти" style="margin-left: 5px;"/>
+        </h:form>
+    </div>
+
+
+
+
+
+
+</ui:composition>

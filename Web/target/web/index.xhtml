@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:r="http://richfaces.org"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="/templates/masterLayout.xhtml">
+
+
+
+    <ui:define name="content">
+        <div style="left: 40%; right: 60%; display: block; position: absolute;">
+            <r:panel rendered="true" header="Авторизация" title="Авторизация" style="min-width:300px;">
+                <h:form id="loginForm">
+                    <p>
+                        <r:autocomplete id="emailField" value="#{welcomBean.email}" style="padding: 5px; width: 280px;" requiredMessage="Поле обязательно для заполнения" required="true" >
+                            <r:placeholder value="email"/>
+                        </r:autocomplete>
+                    </p>
+                    <p>
+                        <h:inputSecret id="passwordField" value="#{welcomBean.password}" style="padding: 5px; width: 280px;" requiredMessage="Поле обязательно для заполнения" required="true">
+                            <r:placeholder value="password"/>
+                        </h:inputSecret>
+                    </p>
+                    <p style="text-align: right ">
+                        <r:message for="emailField" id="emailFieldError" />
+                        <r:commandButton value="Вход" id="btn" action="#{welcomBean.doLogin}" style="width:50px;">
+                            <r:focus id="focus" value="btn" delayed="true"/>
+                        </r:commandButton>
+                    </p>
+
+                </h:form>
+            </r:panel>
+        </div>
+    </ui:define>
+
+    
+
+
+    <ui:define name="heading" >
+    <c:if test="#{welcomBean.login}"/>
+    </ui:define>
+
+    <ui:define name="menuLeft" >
+
+    </ui:define>
+
+    <ui:define name="menuRight" >
+
+    </ui:define>
+
+
+</ui:composition>
