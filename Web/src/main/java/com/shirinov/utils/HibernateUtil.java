@@ -20,8 +20,8 @@ public class HibernateUtil {
         try {
             Properties prop= new Properties();
             prop.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/pyramid");
-            prop.setProperty("hibernate.connection.username", "rustam");
-            prop.setProperty("hibernate.connection.password", "mega1234$");
+            prop.setProperty("hibernate.connection.username", "admintqSmTb9");
+            prop.setProperty("hibernate.connection.password", " Hlq1ChGm3gJ8");
             prop.setProperty("hibernate.show_sql","true");
             prop.setProperty("hibernate.use_sql_comments","true");
             prop.setProperty("dialect", "org.hibernate.dialect.MySQLDialect");
