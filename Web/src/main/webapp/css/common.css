@@ -1,0 +1,46 @@
+html{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.appName {
+    margin: 0px;
+    padding: 0px;
+}
+
+.pageHeading {
+    /*background-color: aquamarine;*/
+    clear: both;
+    float: none;
+    height: 100px;
+}
+
+.menuLeft {
+    /*background-color: cadetblue;*/
+    float: left;
+}
+
+.content{
+    float: left;
+}
+
+.menuRight{
+  /*  background-color: burlywood;*/
+    float: right;
+}
+
+.footer {
+    float: none;
+    clear: both;
+}
+
+
+.inputMedium {
+    width: 150px;
+
+}

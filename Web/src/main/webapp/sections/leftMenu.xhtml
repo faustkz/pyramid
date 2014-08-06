@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:r="http://richfaces.org" >
+
+    <div style="width: 250px;">
+        <h:form>
+            <c:if test="#{userBean.adminRole}">
+                <r:panel>
+                    <h:outputLabel value="Администрирование"/>
+                    <ul style="text-decoration: none; padding: 0px;" title="Администрирование">
+                        <li style="list-style: none; padding: 0px;">
+                            <r:commandLink value="Управление подразделенеиями" action="#{navigationBean.toDevivsion}" />
+                        </li>
+                        <li style="list-style: none; padding: 0px;">
+                            <r:commandLink value="Участники" action="#{navigationBean.toMembers}" />
+                        </li>
+                        <li style="list-style: none; padding: 0px;">
+                            <r:commandLink value="Запросы на выдачу" action="#{navigationBean.toMembers}" />
+                        </li>
+                        <li style="list-style: none; padding: 0px;">
+                            <r:commandLink value="Новости" action="#{navigationBean.toMembers}" />
+                        </li>
+
+                    </ul>
+                </r:panel>
+            </c:if>
+            <r:panel>
+                <ul style="text-decoration: none; padding: 0px;" title="Информация по участникам">
+                    <li style="list-style: none; padding: 0px;">
+                        <r:commandLink value="Подписанные участники" action="#{navigationBean.toMyMembers}" />
+                    </li>
+                    <li style="list-style: none; padding: 0px;">
+                        <r:commandLink value="Баланс" action="#{navigationBean.toMyBalance}" />
+                    </li>
+                    <li style="list-style: none; padding: 0px;">
+                        <r:commandLink value="Вывод денег" action="#{navigationBean.toMyCash}" />
+                    </li>
+                </ul>
+            </r:panel>
+        </h:form>
+    </div>
+</ui:composition>
